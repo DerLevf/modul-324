@@ -3,19 +3,33 @@
 SpeedL ist eine erweiterung vom einfachen Wordleerlebnis. Es verbindet sprachliches Fachwissen und das Vermögen dazu unter Druck Leistung zu erbringen.
 
 ## Spielregeln
+
 Deine Mission ist es innerhalb 60 Sekunden so viele Wordles lösen zu können wie irgendwie möglich.
 
 > More coming...
 
 ## Team
+
 > Alex Uscata
 > Leon Geer
 > Yannick Büchler
 > Loris Schär
 
 ## Aufbau
-Angular
-> More coming...
+
+### Frontend
+
+- Statische Angular Seite, da man das bereits von vorherigen Modulen kennt und die meisten im Team schon damit Bekanntschaft gemacht haben
+- TypeScript und CSS
+
+### Backend & Datenbank
+
+- Kein Backend und keine DB, da wir dafür keine Zeit haben und stattdessen Wert auf das Deployment gelegt wird
+
+### Deployment
+
+- Docker
+- AWS mit Elastic Container Service
 
 ---
 
