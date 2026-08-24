@@ -1,4 +1,25 @@
-# BBZBL Modul 324: Web-Applikation Template
+# SpeedL
+
+SpeedL ist eine erweiterung vom einfachen Wordleerlebnis. Es verbindet Sprachlichesfachwissen und das Vermögen dazu unter Druck Leistung zu erbringen.
+
+## Spielregeln
+Deine Mission ist es innerhalb 60 Sekunden so viele Wordles lösen zu können wie möglich.
+
+> More coming...
+
+## Team
+> Alex Uscata
+> Leon Geer
+> Yannick Büchler
+> Loris Schär
+
+## Aufbau
+Angular
+> More coming...
+
+---
+
+## BBZBL Modul 324: Web-Applikation Template
 
 Dieses Template dient als Vorlage zum Starten eures Projekts.
 
