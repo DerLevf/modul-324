@@ -31,6 +31,15 @@ Deine Mission ist es innerhalb 60 Sekunden so viele Wordles lösen zu können wi
 - Docker
 - AWS mit Elastic Container Service
 
+### Design
+
+Das Design bzw. der visuelle Aufbau der App ist als Mockup im Ordner [`docs/mockups`](docs/mockups) hinterlegt.
+
+- Haupt-Mockup: [SpeedL Mockups](docs/mockups/SpeedL%20Mockups.html)
+
+> [!NOTE]
+> Das Mockup dient als **Richtwert** für das Design der App. Es muss **nicht 1:1** umgesetzt werden, gibt aber die grundlegende Optik und Struktur vor.
+
 ---
 
 ## BBZBL Modul 324: Web-Applikation Template
