@@ -51,7 +51,6 @@ describe('Layout', () => {
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
 
-    // :empty ist die Bedingung, unter der das CSS die Region ausblendet.
     expect(compiled.querySelector('.layout__header')?.matches(':empty')).toBe(true);
     expect(compiled.querySelector('.layout__footer')?.matches(':empty')).toBe(true);
   });
