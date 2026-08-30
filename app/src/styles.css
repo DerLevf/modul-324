@@ -1,1 +1,56 @@
-/* You can add global styles to this file, and also import other style files */
+/* Globale Design-Tokens und Basis-Styles. Farben und Fonts stammen aus dem
+   Mockup unter docs/mockups/SpeedL Mockups.html */
+
+:root {
+  /* Farben */
+  --color-surface: #f5f1e8;
+  --color-ink: #17150f;
+  --color-ink-muted: #5c574a;
+  --color-ink-subtle: #8c8676;
+  --color-ink-faint: #a39c89;
+  --color-on-dark: #f5f1e8;
+
+  --color-correct: #4a7c59;
+  --color-present: #c9a227;
+  --color-absent: #b0a996;
+
+  --color-tile: #e4decf;
+  --color-key: #e9e3d4;
+  --color-highlight: #ede7da;
+
+  --color-border: #d8d0be;
+  --color-divider: #ded6c4;
+
+  /* Typografie */
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, sfmono-regular, menlo, monospace;
+
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 992px;
+  --breakpoint-lg: 1440px;
+  --breakpoint-xl: 2560px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  block-size: 100%;
+}
+
+body {
+  margin: 0;
+  min-block-size: 100%;
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
