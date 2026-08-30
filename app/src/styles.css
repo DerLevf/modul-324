@@ -1,8 +1,8 @@
-/* Globale Design-Tokens und Basis-Styles. Farben und Fonts stammen aus dem
-   Mockup unter docs/mockups/SpeedL Mockups.html */
+/* Global design tokens and base styles. Colors and fonts are taken from the
+   mockup in docs/mockups/SpeedL Mockups.html */
 
 :root {
-  /* Farben */
+  /* Colors */
   --color-surface: #f5f1e8;
   --color-ink: #17150f;
   --color-ink-muted: #5c574a;
@@ -21,7 +21,7 @@
   --color-border: #d8d0be;
   --color-divider: #ded6c4;
 
-  /* Typografie */
+  /* Typography */
   --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, sfmono-regular, menlo, monospace;
 
