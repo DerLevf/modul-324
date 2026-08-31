@@ -52,7 +52,7 @@ Um einen lokalen Entwicklungsserver zu starten, führe folgenden Befehl aus:
 
 ```bash
 npm install
-ng serve
+npm start
 ```
 
 Sobald der Server läuft, öffne deinen Browser und navigiere zu `http://localhost:4200/`. Die Anwendung wird automatisch neu geladen, sobald du Änderungen an den Quelldateien vornimmst.
