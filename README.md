@@ -48,14 +48,14 @@ Vorher via Package-Manager die CLI von Angular installieren:
 npm install -g @angular/cli
 ```
 
-Um einen lokalen Entwicklungsserver zu starten, führen Sie folgenden Befehl aus:
+Um einen lokalen Entwicklungsserver zu starten, führe folgenden Befehl aus:
 
 ```bash
 npm install
 ng serve
 ```
 
-Sobald der Server läuft, öffnen Sie Ihren Browser und navigieren Sie zu `http://localhost:4200/`. Die Anwendung wird automatisch neu geladen, sobald Sie Änderungen an den Quelldateien vornehmen.
+Sobald der Server läuft, öffne deinen Browser und navigiere zu `http://localhost:4200/`. Die Anwendung wird automatisch neu geladen, sobald Sie Änderungen an den Quelldateien vornehmen.
 
 ---
 
