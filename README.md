@@ -55,7 +55,7 @@ npm install
 ng serve
 ```
 
-Sobald der Server läuft, öffne deinen Browser und navigiere zu `http://localhost:4200/`. Die Anwendung wird automatisch neu geladen, sobald Sie Änderungen an den Quelldateien vornehmen.
+Sobald der Server läuft, öffne deinen Browser und navigiere zu `http://localhost:4200/`. Die Anwendung wird automatisch neu geladen, sobald du Änderungen an den Quelldateien vornimmst.
 
 ---
 
