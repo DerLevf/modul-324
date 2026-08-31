@@ -57,6 +57,20 @@ npm start
 
 Sobald der Server läuft, öffne deinen Browser und navigiere zu `http://localhost:4200/`. Die Anwendung wird automatisch neu geladen, sobald du Änderungen an den Quelldateien vornimmst.
 
+### Weitere Funktionen:
+
+Testen:
+
+```bash
+ng test
+```
+
+Linten:
+
+```bash
+ng lint
+```
+
 ---
 
 ## BBZBL Modul 324: Web-Applikation Template
