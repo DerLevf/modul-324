@@ -1,18 +1,18 @@
 # SpeedL
 
-SpeedL ist eine erweiterung vom einfachen Wordleerlebnis. Es verbindet sprachliches Fachwissen und das Vermögen dazu unter Druck Leistung zu erbringen.
+SpeedL ist eine Erweiterung vom einfachen [Wordle-Erlebnis](https://de.wikipedia.org/wiki/Wordle). Es verbindet sprachliches Fachwissen und das Vermögen, dazu unter Druck Leistung zu erbringen.
 
-## Spielregeln
+## Spielbeschreibung
 
 Deine Mission ist es innerhalb 60 Sekunden so viele Wordles lösen zu können wie irgendwie möglich.
 
-> More coming...
+> Mehr kommt noch...
 
 ## Team
 
-> Alex Uscata
-> Leon Geer
-> Yannick Büchler
+> Alex Uscata </br>
+> Leon Geer </br>
+> Yannick Büchler </br>
 > Loris Schär
 
 ## Aufbau
@@ -39,6 +39,23 @@ Das Design bzw. der visuelle Aufbau der App ist als Mockup im Ordner [`docs/mock
 
 > [!NOTE]
 > Das Mockup dient als **Richtwert** für das Design der App. Es muss **nicht 1:1** umgesetzt werden, gibt aber die grundlegende Optik und Struktur vor.
+
+### Lokal starten
+
+Vorher via Package-Manager die CLI von Angular installieren:
+
+```bash
+npm install -g @angular/cli
+```
+
+Um einen lokalen Entwicklungsserver zu starten, führen Sie folgenden Befehl aus:
+
+```bash
+npm install
+ng serve
+```
+
+Sobald der Server läuft, öffnen Sie Ihren Browser und navigieren Sie zu `http://localhost:4200/`. Die Anwendung wird automatisch neu geladen, sobald Sie Änderungen an den Quelldateien vornehmen.
 
 ---
 
