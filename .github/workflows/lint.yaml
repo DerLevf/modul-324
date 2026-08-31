@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Lint
+on:
+  push:
+    paths: ["app/**"]
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24 # lts
+          cache: "npm"
+          cache-dependency-path: app/package-lock.json
+      - name: Install Dependencies
+        working-directory: app
+        run: npm ci
+      - name: Lint
+        working-directory: app
+        run: npm run lint:ci
+        continue-on-error: true
+      - name: Annotate Code
+        uses: DerLev/eslint-annotations@v2
+        with:
+          eslint-report: app/eslint_report.json
