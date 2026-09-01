@@ -50,6 +50,10 @@ let mountedStory: Type<unknown> | undefined;
     app.attachView(component.hostView);
     mountedStory = resolved;
   }
+
+  if (!component) {
+    throw new Error(`Story was not mounted: ${story}`);
+  }
   if (props) {
     Object.assign(component.instance, props);
   }
