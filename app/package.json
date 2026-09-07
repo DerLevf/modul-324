@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:ci": "ng test --browsers=chromiumHeadless",
     "lint": "ng lint",
     "lint:ci": "ng lint --output-file eslint_report.json --format json",
     "e2e": "ng e2e"
@@ -31,6 +32,7 @@
     "@eslint/js": "^10.0.1",
     "@playwright/test": "1.62.1",
     "@types/node": "^26.4.0",
+    "@vitest/browser-playwright": "^4.1.11",
     "angular-eslint": "22.1.0",
     "eslint": "^10.6.0",
     "eslint-config-prettier": "^10.1.8",
