@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "lint:ci": "ng lint --output-file eslint_report.json --format json",
-    "e2e": "ng e2e"
+    "e2e": "playwright test",
+    "e2e:ui": "playwright test --ui"
   },
   "private": true,
   "packageManager": "npm@10.9.2",
