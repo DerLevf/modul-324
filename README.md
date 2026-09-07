@@ -57,13 +57,31 @@ npm start
 
 Sobald der Server läuft, öffne deinen Browser und navigiere zu `http://localhost:4200/`. Die Anwendung wird automatisch neu geladen, sobald du Änderungen an den Quelldateien vornimmst.
 
-### Weitere Funktionen:
+### Unit Tests
 
-Testen:
+Die Unit Tests laufen mit [Vitest](https://vitest.dev/). Die Testdateien liegen jeweils neben der Komponente und enden auf `.spec.ts` (z. B. `src/app/layout/layout.spec.ts`).
+
+Tests ausführen:
 
 ```bash
-ng test
+npm test
 ```
+
+Standardmässig laufen die Tests in einer schnellen jsdom-Umgebung. Um sie stattdessen in einem echten Browser (Chromium, headless) laufen zu lassen – also gleich wie in der GitHub Action:
+
+```bash
+npm run test:ci
+```
+
+Dafür muss einmalig der Browser von Playwright installiert werden:
+
+```bash
+npx playwright install chromium
+```
+
+Bei jedem Push, der etwas in `app/**` ändert, führt der Workflow [`unit-test.yaml`](.github/workflows/unit-test.yaml) die Tests automatisch aus.
+
+### Weitere Funktionen:
 
 Linten:
 
