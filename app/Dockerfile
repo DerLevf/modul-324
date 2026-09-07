@@ -10,7 +10,7 @@ RUN npm ci && npm run build
 # Ab hier beginnt das Produktive Image!
 FROM nginx:1.29-bookworm
 
-LABEL service="myapp"
+LABEL service="speedl"
 
 # Hier kopieren wir nur den gebauten Code für den Browser vom builder Image
 COPY --from=builder /app/dist/SpeedL/browser /usr/share/nginx/html

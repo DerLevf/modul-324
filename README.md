@@ -73,6 +73,32 @@ ng lint
 
 ---
 
+## Docker
+
+### Docker Compose
+
+Aus dem Dockerfile ein Image bauen:
+
+```bash
+docker compose build speedl
+```
+
+App starten (Achtung, wenn Änderungen gemacht wurden, muss die App zuerst neu gebaut werden):
+
+```bash
+docker compose up speedl
+# Startet mit logs, blockiert das Terminal
+
+docker compose up speedl -d
+# Ohne logs im Hintergrund, blockiert nix
+```
+
+App stoppen:
+
+```bash
+docker compose down speedl
+```
+
 ## BBZBL Modul 324: Web-Applikation Template
 
 Ziel ist es ein Repository zu erstellen, welches, [wie das Muster](https://github.com/herrhodel/modul-324-muster) eine

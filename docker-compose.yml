@@ -1,5 +1,5 @@
 services:
-  myapp:
+  speedl:
     build:
       context: ./app
       dockerfile: Dockerfile
