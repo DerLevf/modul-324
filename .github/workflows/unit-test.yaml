@@ -12,7 +12,7 @@ jobs:
       - name: Install node
         uses: actions/setup-node@v6
         with:
-          node-version: 24 # lts
+          node-version: 26 # lts
           cache: "npm"
           cache-dependency-path: app/package-lock.json
       - name: Install Dependencies
