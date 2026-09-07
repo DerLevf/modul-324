@@ -2,3 +2,4 @@ node_modules
 Dockerfile
 .angular
 .vscode
+.env
