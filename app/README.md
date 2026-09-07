@@ -46,13 +46,33 @@ ng test
 
 ## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
+The app uses [Playwright](https://playwright.dev/) for end-to-end tests. The tests are located in the `e2e/` directory and are configured in `playwright.config.ts`.
+
+Install the Playwright browser binaries once after installing dependencies:
 
 ```bash
-ng e2e
+npx playwright install
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Run all e2e tests with:
+
+```bash
+npm run e2e
+```
+
+By default, Playwright uses the base URL from the `PLAYWRIGHT_TEST_BASE_URL` environment variable. If the Angular development server is running on `http://localhost:4200/`, set it before running the tests:
+
+```powershell
+$env:PLAYWRIGHT_TEST_BASE_URL = 'http://localhost:4200/'
+npm run e2e
+```
+
+Useful Playwright commands:
+
+```bash
+npx playwright test --ui
+npx playwright show-report
+```
 
 ## Additional Resources
 
