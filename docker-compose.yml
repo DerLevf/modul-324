@@ -1,0 +1,7 @@
+services:
+  myapp:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
