@@ -33,7 +33,7 @@ yarn-error.log
 testem.log
 /typings
 __screenshots__/
-.vitest-attachments/
+.vitest/
 
 # System files
 .DS_Store

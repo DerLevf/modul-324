@@ -12,15 +12,12 @@ jobs:
       - name: Install node
         uses: actions/setup-node@v6
         with:
-          node-version: 26 # lts
+          node-version: 24 # lts
           cache: "npm"
           cache-dependency-path: app/package-lock.json
       - name: Install Dependencies
         working-directory: app
         run: npm ci
-      - name: Install Playwright Browsers
-        working-directory: app
-        run: npx playwright install --with-deps chromium
       - name: Unit Test
         working-directory: app
-        run: npm run test:ci
+        run: npm run test
