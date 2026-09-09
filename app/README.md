@@ -1,88 +1,88 @@
 # SpeedL
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.21.
+Dieses Projekt wurde mit [Angular CLI](https://github.com/angular/angular-cli) Version 21.2.21 erstellt.
 
-## Development server
+## Entwicklungsserver
 
-To start a local development server, run:
+Um einen lokalen Entwicklungsserver zu starten, führe Folgendes aus:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Sobald der Server läuft, öffne deinen Browser und navigiere zu `http://localhost:4200/`. Die Anwendung wird automatisch neu geladen, sobald du eine der Quelldateien änderst.
 
-## Code scaffolding
+## Code-Gerüsterstellung (Scaffolding)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Die Angular CLI bietet leistungsstarke Werkzeuge zur Code-Gerüsterstellung. Um eine neue Komponente zu generieren, führe Folgendes aus:
 
 ```bash
 ng generate component component-name
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Eine vollständige Liste der verfügbaren Schematics (wie z. B. `components`, `directives` oder `pipes`) erhältst du mit:
 
 ```bash
 ng generate --help
 ```
 
-## Building
+## Build erstellen
 
-To build the project run:
+Um das Projekt zu bauen, führe Folgendes aus:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Dadurch wird dein Projekt kompiliert und die Build-Artefakte werden im Verzeichnis `dist/` gespeichert. Standardmäßig wird der Produktions-Build hinsichtlich Leistung und Geschwindigkeit optimiert.
 
-## Running unit tests
+## Unit-Tests ausführen
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Um Unit-Tests mit dem [Vitest](https://vitest.dev/)-Test-Runner auszuführen, verwende den folgenden Befehl:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+## End-to-End-Tests ausführen
 
-The app uses [Playwright](https://playwright.dev/) for end-to-end tests. The tests are located in the `e2e/` directory and are configured in `playwright.config.ts`.
+Die App verwendet [Playwright](https://playwright.dev/) für End-to-End-Tests. Die Tests befinden sich im Verzeichnis `e2e/` und werden in `playwright.config.ts` konfiguriert.
 
-Install the Playwright browser binaries once after installing dependencies:
+Installiere die Playwright-Browser-Binärdateien einmalig nach der Installation der Abhängigkeiten:
 
 ```bash
 npx playwright install
 ```
 
-Run all e2e tests with:
+Führe alle E2E-Tests aus mit:
 
 ```bash
 npm run e2e
 ```
 
-By default, Playwright uses the base URL from the `PLAYWRIGHT_TEST_BASE_URL` environment variable. If the Angular development server is running on `http://localhost:4200/`, set the variable before running the tests:
+Standardmäßig verwendet Playwright die Basis-URL aus der Umgebungsvariable `PLAYWRIGHT_TEST_BASE_URL`. Wenn der Angular-Entwicklungsserver unter `http://localhost:4200/` läuft, setze die Variable, bevor du die Tests ausführst:
 
 ```powershell
 $env:PLAYWRIGHT_TEST_BASE_URL = 'http://localhost:4200/'
 npm run e2e
 ```
 
-Alternatively, you can add the variable to an `.env` file:
+Alternativ kannst du die Variable auch in einer `.env`-Datei hinterlegen:
 
-1. Create the `.env` file in the `app/` directory.
-2. Add the following value to the `.env` file:
+1. Erstelle die Datei `.env` im Verzeichnis `app/`.
+2. Füge folgenden Wert in die `.env`-Datei ein:
 
 ```bash
 PLAYWRIGHT_TEST_BASE_URL=http://localhost:4200/
 ```
 
-Useful Playwright commands:
+Nützliche Playwright-Befehle:
 
 ```bash
 npx playwright test --ui
 npx playwright show-report
 ```
 
-## Additional Resources
+## Weitere Ressourcen
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Weitere Informationen zur Verwendung der Angular CLI, einschließlich einer detaillierten Befehlsreferenz, findest du auf der Seite [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli).
