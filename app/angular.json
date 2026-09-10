@@ -72,17 +72,6 @@
           "options": {
             "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
-        },
-        "e2e": {
-          "builder": "playwright-ng-schematics:playwright",
-          "options": {
-            "devServerTarget": "SpeedL:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "SpeedL:serve:production"
-            }
-          }
         }
       }
     }
