@@ -44,7 +44,7 @@ Um Unit-Tests mit dem [Vitest](https://vitest.dev/)-Test-Runner auszuführen, ve
 ng test
 ```
 
-## End-to-End-Tests ausführen
+## aEnd-to-End-Tests ausführen
 
 Die App verwendet [Playwright](https://playwright.dev/) für End-to-End-Tests. Die Tests befinden sich im Verzeichnis `e2e/` und werden in `playwright.config.ts` konfiguriert.
 
