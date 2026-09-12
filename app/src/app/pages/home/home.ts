@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { Layout } from '../layout/layout';
+import { Layout } from '../../components/layout/layout';
 
 @Component({
   selector: 'app-home',

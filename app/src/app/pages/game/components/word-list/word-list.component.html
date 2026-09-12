@@ -1,0 +1,6 @@
+<div class="word-list">
+  @for (word of words(); track $index) {
+    <app-word [letters]="word" />
+  }
+  <app-word [letters]="currentWord()" />
+</div>
