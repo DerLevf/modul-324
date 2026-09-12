@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Unit Test
+on:
+  push:
+    paths: ["app/**"]
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24 # lts
+          cache: "npm"
+          cache-dependency-path: app/package-lock.json
+      - name: Install Dependencies
+        working-directory: app
+        run: npm ci
+      - name: Unit Test
+        working-directory: app
+        run: npm run test
