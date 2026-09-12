@@ -1,1 +1,0 @@
-{"fullyTracked":false,"platform":"win32","arch":"x64","nodeVersion":"v26.8.1","command":"playwright test","extraArgs":[],"clean":true,"files":{},"output":[],"dependencies":{"[\"C:\\\\Yannick Schule\\\\Berufsschule\\\\Module\\\\324\\\\modul-324\\\\app\",\"e2e:server\"]":"97a51fb3bef4f490ca0b2506e591ae15ef053c2739996212715c1e5b9f6673a3"},"env":{}}
