@@ -60,7 +60,7 @@ Führe alle E2E-Tests aus mit:
 npm run e2e
 ```
 
-Standardmäßig verwendet Playwright die Basis-URL aus der Umgebungsvariable `PLAYWRIGHT_TEST_BASE_URL`. Wenn der Angular-Entwicklungsserver unter `http://localhost:4200/` läuft, setze die Variable, bevor du die Tests ausführst:
+Standardmäßig verwendet Playwright die Basis-URL aus der Umgebungsvariable `PLAYWRIGHT_TEST_BASE_URL`, default Wert, falls diese Variable nicht definiert ist, ist:`http://localhost:4200/`. Wenn der Angular-Entwicklungsserver unter was anderem läuft, setze die Variable, bevor du die Tests ausführst:
 
 ```powershell
 $env:PLAYWRIGHT_TEST_BASE_URL = 'http://localhost:4200/'
