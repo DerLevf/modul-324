@@ -19,11 +19,13 @@ export class Game {
   handleKeydown(event: KeyboardEvent) {
 
     if (event.key === 'Backspace') {
+      event.preventDefault();
       this.removeLetter();
       return;
     }
 
     if (event.key === 'Enter') {
+      event.preventDefault();
       this.submitWord();
       return;
     }
