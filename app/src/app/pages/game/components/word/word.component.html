@@ -1,0 +1,7 @@
+<div class="word">
+  @for (i of [0, 1, 2, 3, 4]; track i) {
+    <app-letter
+      [letter]="letters()[i] ?? ''"
+    />
+  }
+</div>

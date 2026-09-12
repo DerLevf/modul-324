@@ -3,6 +3,13 @@
     Game
   </span>
 
+  <span>
+    <app-word-list
+      [words]="submittedWords()"
+      [currentWord]="currentWord()"
+    />
+  </span>
+
   <span slot="footer">
     Wordle Game
   </span>
