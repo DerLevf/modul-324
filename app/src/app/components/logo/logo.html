@@ -1,0 +1,7 @@
+<a class="logo" routerLink="/" aria-label="SpeedL Startseite">
+  @for (tile of tiles; track $index) {
+    <span class="logo__tile logo__tile--{{ tile.status }}" aria-hidden="true">{{
+      tile.letter
+    }}</span>
+  }
+</a>
