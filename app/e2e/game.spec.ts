@@ -92,4 +92,17 @@ test.describe('Wordle Game', () => {
     await expect(submittedWordWorld.nth(3)).toContainText('L');
     await expect(submittedWordWorld.nth(4)).toContainText('D');
   });
+
+  test('applies a fade mask to submitted words', async ({ page }) => {
+    await page.keyboard.type('HELLO');
+    await page.keyboard.press('Enter');
+
+    const submittedWords = page.locator('.submitted-words');
+
+    const maskImage = await submittedWords.evaluate((element) => {
+      return getComputedStyle(element).maskImage;
+    });
+
+    expect(maskImage).toContain('linear-gradient');
+  });
 });
