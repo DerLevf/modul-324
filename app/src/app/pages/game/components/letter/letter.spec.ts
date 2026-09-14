@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { WordListComponent } from './word-list.component';
+import { Letter } from './letter';
 
-describe('WordList', () => {
-  let component: WordListComponent;
-  let fixture: ComponentFixture<WordListComponent>;
+describe('Letter', () => {
+  let component: Letter;
+  let fixture: ComponentFixture<Letter>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WordListComponent],
+      imports: [Letter],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(WordListComponent);
+    fixture = TestBed.createComponent(Letter);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

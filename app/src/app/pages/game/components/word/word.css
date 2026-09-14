@@ -1,4 +1,4 @@
 .word {
   display: flex;
-  gap: 5px;
+  gap: 0.3rem;
 }
