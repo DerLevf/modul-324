@@ -1,21 +1,21 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Layout } from '../../components/layout/layout';
-import { WordListComponent } from './components/word-list/word-list.component';
+import { WordList } from './components/word-list/word-list';
 
 @Component({
-  imports: [Layout, WordListComponent],
+  imports: [Layout, WordList],
   selector: 'app-game',
   styleUrl: './game.css',
   templateUrl: './game.html',
+  host: {
+    '(window:keydown)': 'handleKeydown($event)',
+  },
 })
 export class Game {
   readonly wordLength = 5;
-
   currentWord = signal<string[]>([]);
-
   submittedWords = signal<string[][]>([]);
 
-  @HostListener('window:keydown', ['$event'])
   handleKeydown(event: KeyboardEvent) {
 
     if (event.key === 'Backspace') {
