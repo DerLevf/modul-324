@@ -6,7 +6,7 @@ COPY . .
 
 RUN npm ci && npm run build
 
-FROM nginx:1.29-bookworm
+FROM nginxinc/nginx-unprivileged:1.29-bookworm
 
 LABEL service="speedl"
 
