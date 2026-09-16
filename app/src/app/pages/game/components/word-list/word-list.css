@@ -7,7 +7,7 @@
   max-height: 70vh;
 }
 
-.submitted-words {
+.word-list--submitted-words {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
