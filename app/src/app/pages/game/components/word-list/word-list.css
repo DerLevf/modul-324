@@ -13,7 +13,7 @@
   justify-content: flex-end;
 
   overflow: hidden;
-  height: clamp(170px, 50vh, 300px);
+  height: clamp(10.7rem, 50vh, 18.8rem);
 
   mask-image: linear-gradient(
     to bottom,

@@ -16,3 +16,7 @@
   border: 0.09rem solid black;
   border-radius: 15%;
 }
+
+:host {
+  user-select: none;
+}
