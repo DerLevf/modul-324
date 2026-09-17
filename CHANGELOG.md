@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/DerLevf/modul-324/compare/v2.1.0...v2.2.0) (2026-09-17)
+
+
+### Features
+
+* words input [#20](https://github.com/DerLevf/modul-324/issues/20) ([#74](https://github.com/DerLevf/modul-324/issues/74)) ([7a4bc75](https://github.com/DerLevf/modul-324/commit/7a4bc754282052d04572ab9b21c52c335959af16))
+
 ## [2.1.0](https://github.com/DerLevf/modul-324/compare/v2.0.0...v2.1.0) (2026-09-07)
 
 
