@@ -38,7 +38,7 @@
         <ng-container *ngTemplateOutlet="recordLine" />
       }
 
-      <p class="home__hint">Uhr läuft unmittelbar nach dem Spielstart</p>
+      <p class="home__hint">Die Uhr startet direkt mit Spielbeginn</p>
     </div>
   </div>
 </app-layout>
@@ -50,7 +50,7 @@
     @if (currentRecord !== null) {
       Dein aktueller Rekord liegt bei {{ currentRecord }} Wörter
     } @else {
-      Noch kein Rekord, spiel deine erste Runde
+      Noch kein Rekord vorhanden – spiel deine erste Runde
     }
   </p>
 </ng-template>
