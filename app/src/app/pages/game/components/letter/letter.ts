@@ -5,9 +5,6 @@ import { Component, input } from '@angular/core';
   selector: 'app-letter',
   styleUrl: './letter.css',
   templateUrl: './letter.html',
-  host: {
-    '[style.user-select]': '"none"',
-  },
 })
 export class Letter {
   letter = input<string>('');

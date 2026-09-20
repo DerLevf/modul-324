@@ -7,13 +7,13 @@
   max-height: 70vh;
 }
 
-.submitted-words {
+.word-list--submitted-words {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 
   overflow: hidden;
-  height: clamp(170px, 50vh, 300px);
+  height: clamp(10.7rem, 50vh, 18.8rem);
 
   mask-image: linear-gradient(
     to bottom,

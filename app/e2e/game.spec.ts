@@ -97,7 +97,7 @@ test.describe('Wordle Game', () => {
     await page.keyboard.type('HELLO');
     await page.keyboard.press('Enter');
 
-    const submittedWords = page.locator('.submitted-words');
+    const submittedWords = page.locator('.word-list--submitted-words');
 
     const maskImage = await submittedWords.evaluate((element) => {
       return getComputedStyle(element).maskImage;

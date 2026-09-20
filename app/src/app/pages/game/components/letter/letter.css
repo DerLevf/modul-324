@@ -10,9 +10,10 @@
   font-weight: bold;
 
   border-radius: 15%;
+
+  user-select: none;
 }
 
-.letter.active {
+.letter--active {
   border: 0.09rem solid black;
-  border-radius: 15%;
 }
