@@ -77,6 +77,15 @@ Linten:
 ng lint
 ```
 
+### Referenzen:
+
+Dieses Projekt beinhaltet die Wörterliste von [caco3/wordle-de](https://github.com/caco3/wordle-de/tree/main?tab=MIT-1-ov-file).
+
+Originalliste: [target-words.json](https://github.com/caco3/wordle-de/blob/main/target-words.json).
+
+MIT License
+Copyright (c) 2022 Finn Coffey and George Ruinelli
+
 ---
 
 ## BBZBL Modul 324: Web-Applikation Template
