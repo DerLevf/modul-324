@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Layout } from '../../components/layout/layout';
+import { Words } from '../../core/words';
 import { WordList } from './components/word-list/word-list';
 
 @Component({
@@ -12,9 +13,16 @@ import { WordList } from './components/word-list/word-list';
   },
 })
 export class Game {
+  private readonly words = inject(Words);
+
   readonly wordLength = 5;
   currentWord = signal<string[]>([]);
   submittedWords = signal<string[][]>([]);
+  readonly solution = signal<string>('');
+
+  constructor() {
+    this.words.getRandomSolution().then(word => this.solution.set(word));
+  }
 
   handleKeydown(event: KeyboardEvent) {
 
