@@ -81,7 +81,8 @@ ng lint
 
 Dieses Projekt beinhaltet die Wörterliste von [caco3/wordle-de](https://github.com/caco3/wordle-de/tree/main?tab=MIT-1-ov-file).
 
-Originalliste: [target-words.json](https://github.com/caco3/wordle-de/blob/main/target-words.json).
+Originalliste der Zielwörter: [target-words.json](https://github.com/caco3/wordle-de/blob/main/target-words.json).
+Originalliste der anderen Wörter: [other-words.json](https://github.com/caco3/wordle-de/blob/main/other-words.json)
 
 MIT License
 Copyright (c) 2022 Finn Coffey and George Ruinelli
