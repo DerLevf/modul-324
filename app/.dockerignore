@@ -3,3 +3,7 @@ Dockerfile
 .angular
 .vscode
 .env
+e2e
+.editorconfig
+eslint.config.js
+.gitignore

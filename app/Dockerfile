@@ -1,10 +1,10 @@
-FROM node:lts-slim AS builder
+FROM node:22.15.0-slim AS builder
 
 WORKDIR /app
 
 COPY . .
 
-RUN npm ci && npm run build
+RUN npm run build
 
 FROM nginxinc/nginx-unprivileged:1.29-bookworm
 
