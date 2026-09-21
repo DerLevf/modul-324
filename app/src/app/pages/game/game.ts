@@ -1,6 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Layout } from '../../components/layout/layout';
+import { Words } from '../../core/words';
 import { WordList } from './components/word-list/word-list';
+
+const LETTER_KEY_PATTERN = /^[a-zA-ZäöüÄÖÜ]$/;
 
 @Component({
   imports: [Layout, WordList],
@@ -12,9 +15,16 @@ import { WordList } from './components/word-list/word-list';
   },
 })
 export class Game {
+  private readonly words = inject(Words);
+
   readonly wordLength = 5;
   currentWord = signal<string[]>([]);
   submittedWords = signal<string[][]>([]);
+  readonly solution = signal<string>('');
+
+  constructor() {
+    this.words.getRandomSolution().then(word => this.solution.set(word));
+  }
 
   handleKeydown(event: KeyboardEvent) {
 
@@ -30,7 +40,7 @@ export class Game {
       return;
     }
 
-    if (/^[a-zA-Z]$/.test(event.key)) {
+    if (LETTER_KEY_PATTERN.test(event.key)) {
       this.addLetter(event.key.toUpperCase());
     }
   }
@@ -53,9 +63,15 @@ export class Game {
     this.currentWord.update(word => word.slice(0, -1));
   }
 
-  private submitWord() {
+  private async submitWord() {
 
     if (this.currentWord().length !== this.wordLength) {
+      return;
+    }
+
+    const word = this.currentWord().join('');
+
+    if (!(await this.words.isValidWord(word))) {
       return;
     }
 
