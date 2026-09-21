@@ -8,3 +8,4 @@ e2e
 eslint.config.js
 .gitignore
 .prettierrc
+.git
