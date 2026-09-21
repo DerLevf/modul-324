@@ -3,6 +3,8 @@ import { Layout } from '../../components/layout/layout';
 import { Words } from '../../core/words';
 import { WordList } from './components/word-list/word-list';
 
+const LETTER_KEY_PATTERN = /^[a-zA-ZäöüÄÖÜ]$/;
+
 @Component({
   imports: [Layout, WordList],
   selector: 'app-game',
@@ -38,7 +40,7 @@ export class Game {
       return;
     }
 
-    if (/^[a-zA-Z]$/.test(event.key)) {
+    if (LETTER_KEY_PATTERN.test(event.key)) {
       this.addLetter(event.key.toUpperCase());
     }
   }

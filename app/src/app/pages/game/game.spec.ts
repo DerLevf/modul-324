@@ -66,4 +66,29 @@ describe('Game', () => {
     expect(component.submittedWords()).toEqual([]);
     expect(component.currentWord()).toEqual(['X', 'X', 'X', 'X', 'X']);
   });
+
+  it('accepts umlaut letters when typing', () => {
+    typeWord('äöü');
+
+    expect(component.currentWord()).toEqual(['Ä', 'Ö', 'Ü']);
+  });
+
+  it('ignores keys that are not letters', () => {
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: '1' }));
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }));
+
+    expect(component.currentWord()).toEqual([]);
+  });
+
+  it('submits a word containing umlauts that exists in the word list', async () => {
+    httpMock.expectOne('target-words.json').flush({ data: ['äcker'] });
+    httpMock.expectOne('other-words.json').flush({ data: [] });
+    await fixture.whenStable();
+    typeWord('äcker');
+
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
+    await fixture.whenStable();
+
+    expect(component.submittedWords()).toEqual([['Ä', 'C', 'K', 'E', 'R']]);
+  });
 });
