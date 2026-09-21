@@ -1,0 +1,60 @@
+<app-layout class="home">
+  <div class="home__header" slot="header">
+    <app-logo />
+
+    @if (!isMobile()) {
+      <ng-container *ngTemplateOutlet="recordLine" />
+    }
+  </div>
+
+  <div class="home__intro">
+    <h1 class="home__headline">{{ timeLimitSeconds }}<br />Sekunden</h1>
+    <p class="home__subtext">Wie viele Wordles schaffst du?</p>
+
+    @if (!isMobile()) {
+      <ng-container *ngTemplateOutlet="cta" />
+    }
+  </div>
+
+  <div class="home__footer" slot="footer">
+    <ul class="home__legend">
+      <li class="home__legend-item">
+        <span class="home__legend-color home__legend-color--correct"></span>
+        richtig
+      </li>
+      <li class="home__legend-item">
+        <span class="home__legend-color home__legend-color--present"></span>
+        falsche Stelle
+      </li>
+      <li class="home__legend-item home__legend-item--absent">nicht im Wort</li>
+    </ul>
+
+    @if (isMobile()) {
+      <ng-container *ngTemplateOutlet="cta" />
+    }
+
+    <div class="home__meta">
+      @if (isMobile()) {
+        <ng-container *ngTemplateOutlet="recordLine" />
+      }
+
+      <p class="home__hint">Die Uhr startet direkt mit Spielbeginn</p>
+    </div>
+  </div>
+</app-layout>
+
+<ng-template #recordLine>
+  @let currentRecord = record();
+
+  <p class="home__record" [class.home__record--empty]="currentRecord === null">
+    @if (currentRecord !== null) {
+      Dein aktueller Rekord liegt bei {{ currentRecord }} Wörter
+    } @else {
+      Noch kein Rekord vorhanden – spiel deine erste Runde
+    }
+  </p>
+</ng-template>
+
+<ng-template #cta>
+  <a class="home__cta" routerLink="/game">Jetzt starten</a>
+</ng-template>

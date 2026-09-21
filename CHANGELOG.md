@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.0](https://github.com/DerLevf/modul-324/compare/v2.0.0...v2.1.0) (2026-09-07)
+
+
+### Features
+
+* end to end testing setup [#56](https://github.com/DerLevf/modul-324/issues/56) ([#65](https://github.com/DerLevf/modul-324/issues/65)) ([55b090c](https://github.com/DerLevf/modul-324/commit/55b090c5b5aa2bc6b2a8cbad6206443cb308a45b))
+* **setup:** add base layout with design tokens [#16](https://github.com/DerLevf/modul-324/issues/16) ([#62](https://github.com/DerLevf/modul-324/issues/62)) ([f62ed6a](https://github.com/DerLevf/modul-324/commit/f62ed6a15c182e272fd4a924984f15c16a871fa2))
+
 ## [2.0.0](https://github.com/DerLevf/modul-324/compare/v1.0.0...v2.0.0) (2026-08-27)
 
 

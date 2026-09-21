@@ -122,6 +122,9 @@ web_modules/
 .cache
 .parcel-cache
 
+# optional wireit cache
+app/.wireit/
+
 # Next.js build output
 .next
 out

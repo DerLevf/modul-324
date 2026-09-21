@@ -1,0 +1,14 @@
+<app-layout>
+  <span slot="header">
+    Game
+  </span>
+
+    <app-word-list
+      [words]="submittedWords()"
+      [currentWord]="currentWord()"
+    />
+
+  <span slot="footer">
+    Wordle Game
+  </span>
+</app-layout>

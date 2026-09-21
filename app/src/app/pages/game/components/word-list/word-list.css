@@ -1,0 +1,26 @@
+.word-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  width: fit-content;
+  max-height: 70vh;
+}
+
+.word-list--submitted-words {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  overflow: hidden;
+  height: clamp(10.7rem, 50vh, 18.8rem);
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.2) 15%,
+    rgba(0, 0, 0, 0.5) 35%,
+    rgba(0, 0, 0, 0.7) 70%,
+    black 75%
+  );
+}
