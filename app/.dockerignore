@@ -7,3 +7,4 @@ e2e
 .editorconfig
 eslint.config.js
 .gitignore
+.prettierrc

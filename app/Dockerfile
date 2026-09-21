@@ -1,6 +1,10 @@
-FROM node:22.15.0-slim AS builder
+FROM node:26-slim AS builder
 
 WORKDIR /app
+
+COPY package.json package-lock.json ./
+
+RUN npm ci
 
 COPY . .
 
