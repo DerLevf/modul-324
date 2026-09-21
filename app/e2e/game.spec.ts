@@ -71,9 +71,6 @@ test.describe('Wordle Game', () => {
     await page.keyboard.type('ABEND');
     await page.keyboard.press('Enter');
 
-    // Submission is validated asynchronously against the word list, so wait
-    // for it to land before typing the next word - otherwise the still-full
-    // current word silently swallows the next keystrokes.
     await expect(words).toHaveCount(2);
 
     await page.keyboard.type('ABGAS');
