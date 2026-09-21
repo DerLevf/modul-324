@@ -40,7 +40,7 @@ test.describe('Wordle Game', () => {
   });
 
   test('submits a word with Enter', async ({ page }) => {
-    await page.keyboard.type('HELLO');
+    await page.keyboard.type('ABEND');
     await page.keyboard.press('Enter');
 
     const words = page.locator('app-word  ');
@@ -49,11 +49,11 @@ test.describe('Wordle Game', () => {
 
     const submittedWord = words.nth(0).locator('app-letter');
 
-    await expect(submittedWord.nth(0)).toContainText('H');
-    await expect(submittedWord.nth(1)).toContainText('E');
-    await expect(submittedWord.nth(2)).toContainText('L');
-    await expect(submittedWord.nth(3)).toContainText('L');
-    await expect(submittedWord.nth(4)).toContainText('O');
+    await expect(submittedWord.nth(0)).toContainText('A');
+    await expect(submittedWord.nth(1)).toContainText('B');
+    await expect(submittedWord.nth(2)).toContainText('E');
+    await expect(submittedWord.nth(3)).toContainText('N');
+    await expect(submittedWord.nth(4)).toContainText('D');
   });
 
   test('does not submit an incomplete word', async ({ page }) => {
@@ -66,35 +66,40 @@ test.describe('Wordle Game', () => {
   });
 
   test('can submit multiple words', async ({ page }) => {
-    await page.keyboard.type('HELLO');
-    await page.keyboard.press('Enter');
-
-    await page.keyboard.type('WORLD');
-    await page.keyboard.press('Enter');
-
     const words = page.locator('app-word');
+
+    await page.keyboard.type('ABEND');
+    await page.keyboard.press('Enter');
+
+    // Submission is validated asynchronously against the word list, so wait
+    // for it to land before typing the next word - otherwise the still-full
+    // current word silently swallows the next keystrokes.
+    await expect(words).toHaveCount(2);
+
+    await page.keyboard.type('ABGAS');
+    await page.keyboard.press('Enter');
 
     await expect(words).toHaveCount(3);
 
-    const submittedWordHello = words.nth(0).locator('app-letter');
+    const submittedWordAbend = words.nth(0).locator('app-letter');
 
-    await expect(submittedWordHello.nth(0)).toContainText('H');
-    await expect(submittedWordHello.nth(1)).toContainText('E');
-    await expect(submittedWordHello.nth(2)).toContainText('L');
-    await expect(submittedWordHello.nth(3)).toContainText('L');
-    await expect(submittedWordHello.nth(4)).toContainText('O');
+    await expect(submittedWordAbend.nth(0)).toContainText('A');
+    await expect(submittedWordAbend.nth(1)).toContainText('B');
+    await expect(submittedWordAbend.nth(2)).toContainText('E');
+    await expect(submittedWordAbend.nth(3)).toContainText('N');
+    await expect(submittedWordAbend.nth(4)).toContainText('D');
 
-    const submittedWordWorld = words.nth(1).locator('app-letter');
+    const submittedWordAbgas = words.nth(1).locator('app-letter');
 
-    await expect(submittedWordWorld.nth(0)).toContainText('W');
-    await expect(submittedWordWorld.nth(1)).toContainText('O');
-    await expect(submittedWordWorld.nth(2)).toContainText('R');
-    await expect(submittedWordWorld.nth(3)).toContainText('L');
-    await expect(submittedWordWorld.nth(4)).toContainText('D');
+    await expect(submittedWordAbgas.nth(0)).toContainText('A');
+    await expect(submittedWordAbgas.nth(1)).toContainText('B');
+    await expect(submittedWordAbgas.nth(2)).toContainText('G');
+    await expect(submittedWordAbgas.nth(3)).toContainText('A');
+    await expect(submittedWordAbgas.nth(4)).toContainText('S');
   });
 
   test('applies a fade mask to submitted words', async ({ page }) => {
-    await page.keyboard.type('HELLO');
+    await page.keyboard.type('ABEND');
     await page.keyboard.press('Enter');
 
     const submittedWords = page.locator('.word-list--submitted-words');
