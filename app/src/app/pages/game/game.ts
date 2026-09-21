@@ -61,9 +61,15 @@ export class Game {
     this.currentWord.update(word => word.slice(0, -1));
   }
 
-  private submitWord() {
+  private async submitWord() {
 
     if (this.currentWord().length !== this.wordLength) {
+      return;
+    }
+
+    const word = this.currentWord().join('');
+
+    if (!(await this.words.isValidWord(word))) {
       return;
     }
 

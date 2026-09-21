@@ -25,6 +25,12 @@ describe('Game', () => {
     httpMock.expectOne('other-words.json').flush({ data: ['zylon'] });
   }
 
+  function typeWord(word: string) {
+    for (const letter of word) {
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: letter }));
+    }
+  }
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -35,5 +41,29 @@ describe('Game', () => {
     await Promise.resolve();
 
     expect(component.solution()).toBe('apfel');
+  });
+
+  it('submits a word that exists in the word list', async () => {
+    flushWordLists();
+    await fixture.whenStable();
+    typeWord('apfel');
+
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
+    await fixture.whenStable();
+
+    expect(component.submittedWords()).toEqual([['A', 'P', 'F', 'E', 'L']]);
+    expect(component.currentWord()).toEqual([]);
+  });
+
+  it('does not submit a word that is not in the word list', async () => {
+    flushWordLists();
+    await fixture.whenStable();
+    typeWord('xxxxx');
+
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
+    await fixture.whenStable();
+
+    expect(component.submittedWords()).toEqual([]);
+    expect(component.currentWord()).toEqual(['X', 'X', 'X', 'X', 'X']);
   });
 });
