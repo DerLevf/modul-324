@@ -1,0 +1,38 @@
+<div class="keyboard" aria-label="Bildschirmtastatur">
+  @for (row of rows; track $index; let rowIndex = $index) {
+    <div class="keyboard__row">
+      @if (rowIndex === 2) {
+        <button
+          type="button"
+          class="keyboard__key keyboard__key--action"
+          aria-label="Wort bestätigen"
+          (click)="enterPressed.emit()"
+        >
+          Enter
+        </button>
+      }
+
+      @for (letter of row; track letter) {
+        <button
+          type="button"
+          class="keyboard__key"
+          [attr.aria-label]="'Buchstabe ' + letter"
+          (click)="letterPressed.emit(letter)"
+        >
+          {{ letter }}
+        </button>
+      }
+
+      @if (rowIndex === 2) {
+        <button
+          type="button"
+          class="keyboard__key keyboard__key--action"
+          aria-label="Letzten Buchstaben löschen"
+          (click)="deletePressed.emit()"
+        >
+          ⌫
+        </button>
+      }
+    </div>
+  }
+</div>

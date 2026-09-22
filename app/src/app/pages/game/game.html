@@ -8,6 +8,12 @@
       [currentWord]="currentWord()"
     />
 
+    <app-keyboard
+      (letterPressed)="addLetter($event)"
+      (deletePressed)="removeLetter()"
+      (enterPressed)="submitWord()"
+    />
+
   <span slot="footer">
     Wordle Game
   </span>

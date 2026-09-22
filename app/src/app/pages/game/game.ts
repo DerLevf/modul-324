@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { Layout } from '../../components/layout/layout';
 import { WordList } from './components/word-list/word-list';
+import { Keyboard } from './components/keyboard/keyboard';
 
 @Component({
-  imports: [Layout, WordList],
+  imports: [Layout, WordList, Keyboard],
   selector: 'app-game',
   styleUrl: './game.css',
   templateUrl: './game.html',
@@ -35,7 +36,7 @@ export class Game {
     }
   }
 
-  private addLetter(letter: string) {
+  addLetter(letter: string) {
 
     if (this.currentWord().length >= this.wordLength) {
       return;
@@ -44,7 +45,7 @@ export class Game {
     this.currentWord.update(word => [...word, letter]);
   }
 
-  private removeLetter() {
+  removeLetter() {
 
     if (this.currentWord().length === 0) {
       return;
@@ -53,7 +54,7 @@ export class Game {
     this.currentWord.update(word => word.slice(0, -1));
   }
 
-  private submitWord() {
+  submitWord() {
 
     if (this.currentWord().length !== this.wordLength) {
       return;
