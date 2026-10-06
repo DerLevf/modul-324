@@ -1,85 +1,85 @@
-import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { provideHttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { WORD_PATTERN, Words } from './words';
+
+function mockWordLists(target: string[], other: string[]) {
+  vi.stubGlobal(
+    'fetch',
+    vi.fn((url: string) => {
+      const data = url === 'target-words.json' ? target : other;
+      return Promise.resolve({
+        json: () => Promise.resolve({ data }),
+      } as Response);
+    }),
+  );
+}
 
 describe('Words', () => {
   let service: Words;
-  let httpMock: HttpTestingController;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()],
-    });
+    TestBed.configureTestingModule({});
     service = TestBed.inject(Words);
-    httpMock = TestBed.inject(HttpTestingController);
   });
 
   afterEach(() => {
-    httpMock.verify();
+    vi.unstubAllGlobals();
   });
-
-  function flushWordLists(target: string[], other: string[]) {
-    httpMock.expectOne('target-words.json').flush({ data: target });
-    httpMock.expectOne('other-words.json').flush({ data: other });
-  }
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
-  it('picks a random solution from the target word list', async () => {
-    const solutionPromise = service.getRandomSolution();
-    flushWordLists(['apfel', 'birne'], ['zylon']);
+  it('provides the target words but not the other words', async () => {
+    mockWordLists(['apfel', 'Birne'], ['zylon']);
 
-    const solution = await solutionPromise;
-
-    expect(['apfel', 'birne']).toContain(solution);
+    expect(await service.getTargetWords()).toEqual(['apfel', 'birne']);
   });
 
   it('accepts a word that is in the target list', async () => {
-    const validPromise = service.isValidWord('apfel');
-    flushWordLists(['apfel', 'birne'], ['zylon']);
+    mockWordLists(['apfel', 'birne'], ['zylon']);
 
-    expect(await validPromise).toBe(true);
+    expect(await service.isValidWord('apfel')).toBe(true);
   });
 
   it('accepts a word that is only in the other-words list', async () => {
-    const validPromise = service.isValidWord('zylon');
-    flushWordLists(['apfel', 'birne'], ['zylon']);
+    mockWordLists(['apfel', 'birne'], ['zylon']);
 
-    expect(await validPromise).toBe(true);
+    expect(await service.isValidWord('zylon')).toBe(true);
   });
 
   it('is case-insensitive when checking validity', async () => {
-    const validPromise = service.isValidWord('APFEL');
-    flushWordLists(['apfel', 'birne'], ['zylon']);
+    mockWordLists(['apfel', 'birne'], ['zylon']);
 
-    expect(await validPromise).toBe(true);
+    expect(await service.isValidWord('APFEL')).toBe(true);
   });
 
   it('rejects a word that is in neither list', async () => {
-    const validPromise = service.isValidWord('xxxxx');
-    flushWordLists(['apfel', 'birne'], ['zylon']);
+    mockWordLists(['apfel', 'birne'], ['zylon']);
 
-    expect(await validPromise).toBe(false);
+    expect(await service.isValidWord('xxxxx')).toBe(false);
   });
 
-  it('rejects a malformed word without making a request', async () => {
-    const validPromise = service.isValidWord('ab1de');
+  it('rejects a malformed word without fetching the word lists', async () => {
+    const fetchSpy = vi.fn();
+    vi.stubGlobal('fetch', fetchSpy);
 
-    expect(await validPromise).toBe(false);
-    httpMock.expectNone('target-words.json');
-    httpMock.expectNone('other-words.json');
+    expect(await service.isValidWord('ab1de')).toBe(false);
+    expect(fetchSpy).not.toHaveBeenCalled();
   });
 
   it('only fetches the word lists once for multiple calls', async () => {
-    const firstPromise = service.isValidWord('apfel');
-    flushWordLists(['apfel', 'birne'], ['zylon']);
-    await firstPromise;
+    const fetchSpy = vi.fn((url: string) => {
+      const data = url === 'target-words.json' ? ['apfel', 'birne'] : ['zylon'];
+      return Promise.resolve({ json: () => Promise.resolve({ data }) } as Response);
+    });
+    vi.stubGlobal('fetch', fetchSpy);
 
+    await service.isValidWord('apfel');
     await service.isValidWord('birne');
-    await service.getRandomSolution();
+    await service.getTargetWords();
+
+    expect(fetchSpy).toHaveBeenCalledTimes(2);
   });
 });
 
