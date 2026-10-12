@@ -51,7 +51,7 @@ export class Game {
     }
   }
 
-  private addLetter(letter: string) {
+  addLetter(letter: string) {
     if (this.currentWord().length >= this.wordLength) {
       return;
     }
@@ -59,7 +59,7 @@ export class Game {
     this.currentWord.update((word) => [...word, letter]);
   }
 
-  private removeLetter() {
+  removeLetter() {
     if (this.currentWord().length === 0) {
       return;
     }
@@ -67,7 +67,7 @@ export class Game {
     this.currentWord.update((word) => word.slice(0, -1));
   }
 
-  private submitWord() {
+  submitWord() {
     if (this.validating || this.currentWord().length !== this.wordLength) {
       return;
     }
