@@ -1,7 +1,10 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Layout } from '../../components/layout/layout';
+import { Words } from '../../core/words';
 import { WordList } from './components/word-list/word-list';
 import { Keyboard } from './components/keyboard/keyboard';
+
+const LETTER_KEY_PATTERN = /^[a-zA-ZäöüÄÖÜ]$/;
 
 @Component({
   imports: [Layout, WordList, Keyboard],
@@ -13,9 +16,20 @@ import { Keyboard } from './components/keyboard/keyboard';
   },
 })
 export class Game {
+  private readonly words = inject(Words);
+
   readonly wordLength = 5;
   currentWord = signal<string[]>([]);
   submittedWords = signal<string[][]>([]);
+  readonly solution = signal<string>('');
+
+  constructor() {
+    this.selectSolution();
+  }
+
+  async selectSolution() {
+    this.solution.set(await this.words.getRandomTargetWord());
+  }
 
   handleKeydown(event: KeyboardEvent) {
 
@@ -31,7 +45,7 @@ export class Game {
       return;
     }
 
-    if (/^[a-zA-Z]$/.test(event.key)) {
+    if (LETTER_KEY_PATTERN.test(event.key)) {
       this.addLetter(event.key.toUpperCase());
     }
   }
