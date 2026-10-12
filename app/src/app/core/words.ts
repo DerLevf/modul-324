@@ -18,7 +18,14 @@ export class Words {
 
   async getTargetWords(): Promise<string[]> {
     const { targetWords } = await this.loadWordLists();
+
     return targetWords;
+  }
+
+  async getRandomTargetWord(): Promise<string> {
+    const { targetWords } = await this.loadWordLists();
+
+    return targetWords[Math.floor(Math.random() * targetWords.length)];
   }
 
   async isValidWord(word: string): Promise<boolean> {
@@ -27,16 +34,18 @@ export class Words {
     }
 
     const { validWords } = await this.loadWordLists();
+
     return validWords.has(word.toLowerCase());
   }
 
   private loadWordLists(): Promise<WordLists> {
     this.wordLists ??= Promise.all([
-      fetch('target-words.json').then(response => response.json() as Promise<WordListFile>),
-      fetch('other-words.json').then(response => response.json() as Promise<WordListFile>),
+      fetch('target-words.json').then((response) => response.json() as Promise<WordListFile>),
+      fetch('other-words.json').then((response) => response.json() as Promise<WordListFile>),
     ]).then(([target, other]) => {
-      const targetWords = target.data.map(word => word.toLowerCase());
-      const otherWords = other.data.map(word => word.toLowerCase());
+      const targetWords = target.data.map((word) => word.toLowerCase());
+      const otherWords = other.data.map((word) => word.toLowerCase());
+
       return { targetWords, validWords: new Set([...targetWords, ...otherWords]) };
     });
 

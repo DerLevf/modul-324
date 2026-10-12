@@ -36,6 +36,22 @@ describe('Words', () => {
     expect(await service.getTargetWords()).toEqual(['apfel', 'birne']);
   });
 
+  it('picks different words depending on the random value', async () => {
+    mockWordLists(['apfel', 'birne', 'kerze'], []);
+    const random = vi.spyOn(Math, 'random');
+
+    random.mockReturnValue(0);
+    expect(await service.getRandomTargetWord()).toBe('apfel');
+
+    random.mockReturnValue(0.5);
+    expect(await service.getRandomTargetWord()).toBe('birne');
+
+    random.mockReturnValue(0.999);
+    expect(await service.getRandomTargetWord()).toBe('kerze');
+
+    random.mockRestore();
+  });
+
   it('accepts a word that is in the target list', async () => {
     mockWordLists(['apfel', 'birne'], ['zylon']);
 
