@@ -46,6 +46,7 @@
   outline: 2px solid var(--color-ink);
   outline-offset: 2px;
 }
-.delete-button {
+
+.keyboard__delete-button {
   font-size: 1.5rem;
 }
