@@ -34,6 +34,10 @@ export class Game {
   }
 
   handleKeydown(event: KeyboardEvent) {
+    if (this.validating) {
+      return;
+    }
+
     if (event.key === 'Backspace') {
       event.preventDefault();
       this.removeLetter();
