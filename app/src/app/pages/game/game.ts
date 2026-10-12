@@ -51,7 +51,7 @@ export class Game {
   }
 
   private addLetter(letter: string) {
-    if (this.validating || this.currentWord().length >= this.wordLength) {
+    if (this.currentWord().length >= this.wordLength) {
       return;
     }
 
@@ -59,29 +59,31 @@ export class Game {
   }
 
   private removeLetter() {
-    if (this.validating || this.currentWord().length === 0) {
+    if (this.currentWord().length === 0) {
       return;
     }
 
     this.currentWord.update((word) => word.slice(0, -1));
   }
 
-  private async submitWord() {
+  private submitWord() {
     if (this.validating || this.currentWord().length !== this.wordLength) {
       return;
     }
 
     this.validating = true;
-    const isValid = await this.words
-      .isValidWord(this.currentWord().join(''))
+    const word = this.currentWord().join('');
+
+    void this.words
+      .isValidWord(word)
+      .then((isValid) => {
+        if (!isValid) {
+          return;
+        }
+
+        this.submittedWords.update((words) => [...words, [...word]]);
+        this.currentWord.set([]);
+      })
       .finally(() => (this.validating = false));
-
-    if (!isValid) {
-      return;
-    }
-
-    this.submittedWords.update((words) => [...words, [...this.currentWord()]]);
-
-    this.currentWord.set([]);
   }
 }
