@@ -72,8 +72,6 @@ test.describe('Wordle Game', () => {
     await page.keyboard.type('XXXXX');
     await page.keyboard.press('Enter');
 
-    // Input is locked while the word is validated, so retry until Backspace
-    // is accepted again. A rejected word must still be there afterwards.
     await expect(async () => {
       await page.keyboard.press('Backspace');
       await expect(letters.nth(4)).toHaveText('', { timeout: 500 });
