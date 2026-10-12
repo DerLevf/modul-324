@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Layout } from '../../components/layout/layout';
+import { Words } from '../../core/words';
 import { WordList } from './components/word-list/word-list';
 
 const LETTER_KEY_PATTERN = /^[a-zA-ZäöüÄÖÜ]$/;
@@ -14,9 +15,20 @@ const LETTER_KEY_PATTERN = /^[a-zA-ZäöüÄÖÜ]$/;
   },
 })
 export class Game {
+  private readonly words = inject(Words);
+
   readonly wordLength = 5;
   currentWord = signal<string[]>([]);
   submittedWords = signal<string[][]>([]);
+  readonly solution = signal<string>('');
+
+  constructor() {
+    this.selectSolution();
+  }
+
+  async selectSolution() {
+    this.solution.set(await this.words.getRandomTargetWord());
+  }
 
   handleKeydown(event: KeyboardEvent) {
 
