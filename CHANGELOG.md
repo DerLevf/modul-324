@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.3.0](https://github.com/DerLevf/modul-324/compare/v2.2.0...v2.3.0) (2026-10-12)
+
+
+### Features
+
+* add keyboard [#17](https://github.com/DerLevf/modul-324/issues/17) ([#81](https://github.com/DerLevf/modul-324/issues/81)) ([d530a6b](https://github.com/DerLevf/modul-324/commit/d530a6bbdfb85d1a79d375f805fe3806dc6bf4cc))
+* validate word input against the word list [#21](https://github.com/DerLevf/modul-324/issues/21) ([#83](https://github.com/DerLevf/modul-324/issues/83)) ([cf3f562](https://github.com/DerLevf/modul-324/commit/cf3f562bafd298179c5651bb70ea96b763a77de8))
+
 ## [2.2.0](https://github.com/DerLevf/modul-324/compare/v2.1.0...v2.2.0) (2026-10-12)
 
 
