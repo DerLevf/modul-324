@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.2.0](https://github.com/DerLevf/modul-324/compare/v2.1.0...v2.2.0) (2026-10-12)
+
+
+### Features
+
+* add home page [#57](https://github.com/DerLevf/modul-324/issues/57) ([#75](https://github.com/DerLevf/modul-324/issues/75)) ([55b2984](https://github.com/DerLevf/modul-324/commit/55b29845928e1bbd25aa0246d6b38f33b41a333d))
+* integrate local wordlist [#24](https://github.com/DerLevf/modul-324/issues/24) ([#79](https://github.com/DerLevf/modul-324/issues/79)) ([cfb7340](https://github.com/DerLevf/modul-324/commit/cfb7340f97c06c1360db2fa794b409dfe39a28f6))
+* random word on game start [#25](https://github.com/DerLevf/modul-324/issues/25) ([#82](https://github.com/DerLevf/modul-324/issues/82)) ([c524469](https://github.com/DerLevf/modul-324/commit/c5244693c0ac71612ade067b8aef5376741fe10c))
+* words input [#20](https://github.com/DerLevf/modul-324/issues/20) ([#74](https://github.com/DerLevf/modul-324/issues/74)) ([7a4bc75](https://github.com/DerLevf/modul-324/commit/7a4bc754282052d04572ab9b21c52c335959af16))
+
 ## [2.1.0](https://github.com/DerLevf/modul-324/compare/v2.0.0...v2.1.0) (2026-09-07)
 
 
