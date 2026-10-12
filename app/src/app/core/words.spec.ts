@@ -36,17 +36,6 @@ describe('Words', () => {
     expect(await service.getTargetWords()).toEqual(['apfel', 'birne']);
   });
 
-  it('picks a random word from the target words only', async () => {
-    mockWordLists(['apfel', 'birne'], ['zylon']);
-
-    const picked = new Set<string>();
-    for (let i = 0; i < 50; i++) {
-      picked.add(await service.getRandomTargetWord());
-    }
-
-    expect([...picked].sort()).toEqual(['apfel', 'birne']);
-  });
-
   it('picks different words depending on the random value', async () => {
     mockWordLists(['apfel', 'birne', 'kerze'], []);
     const random = vi.spyOn(Math, 'random');

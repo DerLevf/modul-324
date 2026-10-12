@@ -18,11 +18,13 @@ export class Words {
 
   async getTargetWords(): Promise<string[]> {
     const { targetWords } = await this.loadWordLists();
+
     return targetWords;
   }
 
   async getRandomTargetWord(): Promise<string> {
     const { targetWords } = await this.loadWordLists();
+
     return targetWords[Math.floor(Math.random() * targetWords.length)];
   }
 
@@ -32,6 +34,7 @@ export class Words {
     }
 
     const { validWords } = await this.loadWordLists();
+
     return validWords.has(word.toLowerCase());
   }
 
@@ -42,6 +45,7 @@ export class Words {
     ]).then(([target, other]) => {
       const targetWords = target.data.map((word) => word.toLowerCase());
       const otherWords = other.data.map((word) => word.toLowerCase());
+
       return { targetWords, validWords: new Set([...targetWords, ...otherWords]) };
     });
 
