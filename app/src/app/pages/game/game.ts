@@ -16,6 +16,7 @@ const LETTER_KEY_PATTERN = /^[a-zA-ZäöüÄÖÜ]$/;
 })
 export class Game {
   private readonly words = inject(Words);
+
   private validating = false;
 
   readonly wordLength = 5;
@@ -32,7 +33,6 @@ export class Game {
   }
 
   handleKeydown(event: KeyboardEvent) {
-
     if (event.key === 'Backspace') {
       event.preventDefault();
       this.removeLetter();
@@ -51,25 +51,22 @@ export class Game {
   }
 
   private addLetter(letter: string) {
-
     if (this.validating || this.currentWord().length >= this.wordLength) {
       return;
     }
 
-    this.currentWord.update(word => [...word, letter]);
+    this.currentWord.update((word) => [...word, letter]);
   }
 
   private removeLetter() {
-
     if (this.validating || this.currentWord().length === 0) {
       return;
     }
 
-    this.currentWord.update(word => word.slice(0, -1));
+    this.currentWord.update((word) => word.slice(0, -1));
   }
 
   private async submitWord() {
-
     if (this.validating || this.currentWord().length !== this.wordLength) {
       return;
     }
@@ -83,10 +80,7 @@ export class Game {
       return;
     }
 
-    this.submittedWords.update(words => [
-      ...words,
-      [...this.currentWord()]
-    ]);
+    this.submittedWords.update((words) => [...words, [...this.currentWord()]]);
 
     this.currentWord.set([]);
   }
