@@ -10,9 +10,9 @@ describe('Keyboard', () => {
     await fixture.whenStable();
   });
 
-  it('displays all 26 letters and two action buttons', () => {
+  it('displays all 29 letters and two action buttons', () => {
     const buttons = fixture.nativeElement.querySelectorAll('button');
-    expect(buttons.length).toBe(28);
+    expect(buttons.length).toBe(31);
   });
 
   it('emits the clicked letter', () => {
