@@ -72,7 +72,7 @@ export class Game {
   }
 
   submitWord() {
-    if (this.validating || this.currentWord().length !== this.wordLength) {
+    if (this.currentWord().length !== this.wordLength) {
       return;
     }
 
