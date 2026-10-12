@@ -16,6 +16,7 @@ const LETTER_KEY_PATTERN = /^[a-zA-ZäöüÄÖÜ]$/;
 })
 export class Game {
   private readonly words = inject(Words);
+  private validating = false;
 
   readonly wordLength = 5;
   currentWord = signal<string[]>([]);
@@ -51,7 +52,7 @@ export class Game {
 
   private addLetter(letter: string) {
 
-    if (this.currentWord().length >= this.wordLength) {
+    if (this.validating || this.currentWord().length >= this.wordLength) {
       return;
     }
 
@@ -60,16 +61,25 @@ export class Game {
 
   private removeLetter() {
 
-    if (this.currentWord().length === 0) {
+    if (this.validating || this.currentWord().length === 0) {
       return;
     }
 
     this.currentWord.update(word => word.slice(0, -1));
   }
 
-  private submitWord() {
+  private async submitWord() {
 
-    if (this.currentWord().length !== this.wordLength) {
+    if (this.validating || this.currentWord().length !== this.wordLength) {
+      return;
+    }
+
+    this.validating = true;
+    const isValid = await this.words
+      .isValidWord(this.currentWord().join(''))
+      .finally(() => (this.validating = false));
+
+    if (!isValid) {
       return;
     }
 
